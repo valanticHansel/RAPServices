@@ -1,0 +1,40 @@
+unmanaged implementation in class zbp_rap_root_customersum unique;
+strict ( 1 );
+
+define behavior for ZRAP_root_CustomersUM //alias <alias_name>
+//late numbering
+lock master
+authorization master ( instance )
+//etag master <field_name>
+{
+  field ( readonly ) CustomerId;
+  create;
+  //  update;
+  //  delete;
+  association _CustShops { create; }
+  mapping for zrap_customers
+    {
+      CustomerId   = cust_id;
+      CustomerName = customer_name;
+      Country      = country;
+    }
+ }
+
+define behavior for ZRAP_I_CustomerShopsUM //alias <alias_name>
+//late numbering
+lock dependent by _Customer
+authorization dependent by _Customer
+//etag master <field_name>
+{
+  field ( mandatory ) ShopId;
+  //  update;
+  //  delete;
+  field ( readonly ) CustomerId;
+  association _Customer;
+  mapping for zrap_cust_shops
+    {
+      CustomerId = cust_id;
+      ShopId     = shop_id;
+      ShopName   = shop_name;
+    }
+ }

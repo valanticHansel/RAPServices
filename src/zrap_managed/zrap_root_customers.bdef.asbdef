@@ -1,0 +1,44 @@
+managed implementation in class zbp_rap_root_customers unique;
+strict ( 1 );
+
+define behavior for ZRAP_root_Customers //alias <alias_name>
+persistent table zrap_customers
+lock master
+authorization master ( instance )
+//late numbering
+//etag master <field_name>
+{
+  action customAction result [1] $self;
+  action customAction2 result [1] $self;
+
+  field ( readonly, numbering : managed ) CustomerId;
+  create;
+  update;
+  delete;
+  association _CustShops { create; }
+  mapping for zrap_customers
+    {
+      CustomerId   = cust_id;
+      CustomerName = customer_name;
+      Country      = country;
+    }
+ }
+
+define behavior for ZRAP_I_CustomerShops //alias <alias_name>
+persistent table zrap_cust_shops
+lock dependent by _Customer
+authorization dependent by _Customer
+//late numbering
+//etag master <field_name>
+{
+  update;
+  delete;
+  field ( readonly ) CustomerId;
+  association _Customer;
+  mapping for zrap_cust_shops
+    {
+      CustomerId = cust_id;
+      ShopId     = shop_id;
+      ShopName   = shop_name;
+    }
+ }

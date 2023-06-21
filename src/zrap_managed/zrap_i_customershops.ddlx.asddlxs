@@ -1,0 +1,32 @@
+@Metadata.layer: #CORE
+annotate view ZRAP_I_CustomerShops
+    with 
+{
+  @UI.facet: [
+                 { id: 'Facet1',
+                   type: #COLLECTION,
+                   label: 'Shop Information',
+                   position: 10 },
+                 { id: 'GeneralData',
+                   type: #FIELDGROUP_REFERENCE,
+                   label: 'General Informationen',
+                   parentId: 'Facet1',
+                   targetQualifier: 'Fieldgroup:GeneralData',
+                   position: 10 }
+              ]
+  @UI: { lineItem: [ { position: 100 } ],
+         identification: [ { position: 100 } ],
+         fieldGroup: [{ qualifier: 'Fieldgroup:GeneralData',
+                        position: 100 }] }
+  CustomerId;
+  @UI: { lineItem: [ { position: 150 } ],
+         identification: [ { position: 150 } ],
+         fieldGroup: [{ qualifier: 'Fieldgroup:GeneralData',
+                        position: 150 }] }
+  ShopId;
+  @UI: { lineItem: [ { position: 200 } ],
+         identification: [ { position: 200 } ],
+         fieldGroup: [{ qualifier: 'Fieldgroup:GeneralData',
+                        position: 200 }] }
+  ShopName;
+}

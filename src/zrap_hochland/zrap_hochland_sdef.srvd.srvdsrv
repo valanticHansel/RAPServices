@@ -1,0 +1,4 @@
+@EndUserText.label: 'Hochland service definition'
+define service ZRAP_HOCHLAND_SDEF {
+  expose ZRAP_HochlandTest;
+}

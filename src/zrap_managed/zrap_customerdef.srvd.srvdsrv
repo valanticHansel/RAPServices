@@ -1,0 +1,6 @@
+@EndUserText.label: 'Service definition for customers'
+define service ZRAP_CustomerDef {
+  expose ZRAP_root_Customers;
+  expose ZRAP_I_CustomerShops;
+  expose ZRAP_root_Employee;
+}

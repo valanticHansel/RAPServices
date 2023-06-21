@@ -1,0 +1,20 @@
+@Metadata.layer: #CORE
+annotate view ZRAP_HochlandTest with
+{
+  @UI: { lineItem: [ { position: 10 } ],
+         identification: [ { position: 10 } ],
+         selectionField: [ { position: 10 } ],
+         fieldGroup: [{ qualifier: 'Fieldgroup:GeneralData', position: 10 }] }
+  CustomerId;
+  @UI: { lineItem: [ { position: 40 } ],
+       identification: [ { position: 20 } ],
+       selectionField: [ { position: 20 } ],
+       fieldGroup: [{ qualifier: 'Fieldgroup:GeneralData', position: 20 }] }
+  CustomerName;
+  @UI: { lineItem: [ { position: 30 } ],
+       identification: [ { position: 30 } ],
+       selectionField: [ { position: 30 } ],
+       fieldGroup: [{ qualifier: 'Fieldgroup:GeneralData', position: 30 }] }
+  Country;
+
+}

@@ -1,0 +1,5 @@
+@EndUserText.label: 'Service definition for customers unmanaged'
+define service ZRAP_CUSTOMER_DEFUM {
+  expose ZRAP_root_CustomersUM;
+  expose ZRAP_I_CustomerShopsUM;
+}

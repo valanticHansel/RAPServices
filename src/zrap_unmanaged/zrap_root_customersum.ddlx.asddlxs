@@ -1,0 +1,36 @@
+@Metadata.layer: #CORE
+annotate view ZRAP_root_CustomersUM with
+{
+  @UI.facet: [
+      { id: 'Facet1',
+           type: #COLLECTION,
+           label: 'Customer Information',
+           position: 10 },
+        { id: 'GeneralData',
+           type: #FIELDGROUP_REFERENCE,
+           label: 'General Informationen',
+           parentId: 'Facet1',
+           targetQualifier: 'Fieldgroup:GeneralData',
+           position: 10 },
+    { id: 'CustShops',
+           type: #LINEITEM_REFERENCE,
+           label: 'Customer Shops',
+           position: 20,
+           targetElement: '_CustShops' } ]
+  @UI: { lineItem:       [ { position: 10 } ],
+         identification: [ { position: 10 } ],
+         selectionField: [ { position: 10 } ],
+         fieldGroup: [{ qualifier: 'Fieldgroup:GeneralData', position: 10 }] }
+  CustomerId;
+  @UI: { lineItem:       [ { position: 20 } ],
+         identification: [ { position: 20 } ],
+         selectionField: [ { position: 20 } ],
+         fieldGroup: [{ qualifier: 'Fieldgroup:GeneralData', position: 20 }] }
+  CustomerName;
+  @UI: { lineItem:       [ { position: 30 } ],
+         identification: [ { position: 30 } ],
+         selectionField: [ { position: 30 } ],
+         fieldGroup: [{ qualifier: 'Fieldgroup:GeneralData', position: 30 }] }
+  @Consumption.valueHelpDefinition: [{ entity:{ element: 'Country', name: 'I_country'}}]
+  Country;
+}
